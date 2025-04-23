@@ -137,6 +137,7 @@ pub static DEV: Lazy<Arc<ChainSpec>> = Lazy::new(|| {
         hardforks: DEV_HARDFORKS.clone(),
         base_fee_params: BaseFeeParamsKind::Constant(BaseFeeParams::ethereum()),
         deposit_contract: None, // TODO: do we even have?
+        prune_delete_limit: 20000,
         ..Default::default()
     }
     .into()
