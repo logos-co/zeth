@@ -138,7 +138,8 @@ pub static DEV: Lazy<Arc<ChainSpec>> = Lazy::new(|| {
         base_fee_params: BaseFeeParamsKind::Constant(BaseFeeParams::ethereum()),
         deposit_contract: None, // TODO: do we even have?
         prune_delete_limit: 20000,
-        ..Default::default()
+        genesis_header: Default::default(),
+        max_gas_limit: ETHEREUM_BLOCK_GAS_LIMIT,
     }
     .into()
 });
