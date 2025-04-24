@@ -135,11 +135,10 @@ where
         } else {
             ProverOpts::succinct()
         };
-        let file_name = proof_file_name(
-            build_result.validated_tail_hash,
-            build_result.validated_tip_hash,
-            image_id,
-            &prover_opts,
+        let file_name = format!(
+            "{}-{}.zkp",
+            build_args.block_number,
+            build_args.block_count + build_args.block_number
         );
         let receipt = if let Ok(true) = Path::new(&file_name).try_exists() {
             info!("Proving skipped. Receipt file {file_name} already exists.");
